@@ -16,8 +16,7 @@ export const analyzeEmail = async (emailData) => {
   } catch (error) {
     if (error.response && error.response.data && error.response.data.detail) {
       throw new Error(error.response.data.detail);
-    }
-    throw new Error('Unable to connect to PhishGuard AI Backend. Please ensure backend server is running on port 8000.');
+    }throw new Error('Unable to connect to PhishGuard AI Backend. Please try again.');
   }
 };
 
