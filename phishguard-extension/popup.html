@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PhishGuard AI</title>
+  <style>
+    body {
+      width: 310px;
+      margin: 0;
+      padding: 16px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #0f172a;
+      color: #f8fafc;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #334155;
+      padding-bottom: 12px;
+      margin-bottom: 14px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .brand h1 {
+      font-size: 16px;
+      margin: 0;
+      color: #38bdf8;
+      font-weight: 700;
+    }
+    .status-pill {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+    }
+    .status-online {
+      background: rgba(16, 185, 129, 0.2);
+      color: #34d399;
+      border: 1px solid #10b981;
+    }
+    .status-offline {
+      background: rgba(239, 68, 68, 0.2);
+      color: #f87171;
+      border: 1px solid #ef4444;
+    }
+    .section-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #94a3b8;
+      margin-bottom: 8px;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .stat-card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 10px;
+      text-align: center;
+    }
+    .stat-num {
+      font-size: 20px;
+      font-weight: 700;
+      color: #f8fafc;
+    }
+    .stat-label {
+      font-size: 10px;
+      color: #94a3b8;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+    .stat-safe .stat-num { color: #34d399; }
+    .stat-suspicious .stat-num { color: #fbbf24; }
+    .stat-phishing .stat-num { color: #f87171; }
+    
+    .btn-dashboard {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      transition: opacity 0.2s;
+    }
+    .btn-dashboard:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="brand">
+      <span style="font-size: 18px;">🛡️</span>
+      <h1>PhishGuard AI</h1>
+    </div>
+    <div id="backend-status" class="status-pill status-offline">CHECKING...</div>
+  </div>
+
+  <div class="section-title">Session Threat Analysis</div>
+  
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-num" id="stat-total">0</div>
+      <div class="stat-label">Scanned</div>
+    </div>
+    <div class="stat-card stat-safe">
+      <div class="stat-num" id="stat-safe">0</div>
+      <div class="stat-label">Safe</div>
+    </div>
+    <div class="stat-card stat-suspicious">
+      <div class="stat-num" id="stat-suspicious">0</div>
+      <div class="stat-label">Suspicious</div>
+    </div>
+    <div class="stat-card stat-phishing">
+      <div class="stat-num" id="stat-phishing">0</div>
+      <div class="stat-label">Phishing</div>
+    </div>
+  </div>
+
+  <button class="btn-dashboard" id="btn-open-dash">
+    Open PhishGuard Dashboard ↗
+  </button>
+
+  <script src="popup.js"></script>
+</body>
+</html>
